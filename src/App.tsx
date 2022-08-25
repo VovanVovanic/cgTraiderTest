@@ -1,4 +1,6 @@
 import React from 'react';
+import Header from './modules/header';
+import './app.scss'
 // import pictureA from './a.jpg';
 // import pictureB from './b.jpg';
 
@@ -8,7 +10,9 @@ function cartItems() {
 
 function App() {
   return (
-    <div>Hello</div>
+    <main>
+      <Header />
+    </main>
   );
 }
 
