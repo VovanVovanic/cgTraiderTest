@@ -10,6 +10,8 @@
     width: 100%;
     .nav{
       margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
     }
     .chart{
       display: flex;
@@ -18,8 +20,7 @@
   }
 }
 .btn{
-  padding: 0 20px;
-  height: 30px;
-  margin: 0 10px;
-  font-size: 18px;
+  background-color: aliceblue !important;
+  color:black !important;
+  font-size: 12px;
 }

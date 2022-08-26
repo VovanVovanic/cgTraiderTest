@@ -1,6 +1,7 @@
 ///this all are fake data but it can be rework in accordance with server and back end settings
-import { IchartItem } from './../types';
+
 import axios from "axios"
+import { IchartItem } from "../cart/types"
 
 const instance = axios.create({
     baseURL: 'https://fake_cdtraider_store'
@@ -30,6 +31,13 @@ export const deleteItemFromChart = (id:string) => {
 
 export const clearAllData= () => {
   return instance.delete(`/chart/clear`)
+    .then((response) => {
+      return response.data
+    })
+}
+
+export const getCategory = () => {
+  return instance.get<Array<IchartItem>>(`/category.json`)
     .then((response) => {
       return response.data
     })

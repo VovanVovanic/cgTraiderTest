@@ -11,13 +11,19 @@ import { PageInfoType } from '../../types'
 interface NavType {
   setPageInfo: (info: PageInfoType) => void
 }
-const Navigation: React.FC<NavType> = ({setPageInfo}) => {
+const Navigation: React.FC<NavType> = ({ setPageInfo }) => {
   const links = [
     { to: "/", label: "Main" },
     { to: "/category", label: "Comedy", title: "Comedy", url: "comedy" },
     { to: "/category", label: "Fantastic", title: "Fantastic", url: "fantastic" },
     { to: "/category", label: "Horror", title: "Horror", url: "horror" }
   ]
+
+
+  const onLinkClickHandler = (el:any) => {
+    el.title && setPageInfo({ title: el.title, url: el.url })
+  }
+
   return (
     <nav className={classnames('navigation')}>
       <div className={classnames('wrapper')}>
@@ -25,9 +31,9 @@ const Navigation: React.FC<NavType> = ({setPageInfo}) => {
           {links.map((el) => {
             return (
               <NavLink to={el.to}>
-                <Button size="lg" color="info"
+                <Button size="sm" color="primary"
                   className={classnames('btn')}
-                  onClick={() => el.title && setPageInfo({ title: el.title, url: el.url })}
+                  onClick={() => onLinkClickHandler(el)}
                 >
                   {el.label}
                 </Button ></NavLink>
@@ -36,7 +42,7 @@ const Navigation: React.FC<NavType> = ({setPageInfo}) => {
         </div>
         <div className={classnames('chart')}>
           <NavLink to={'cart'}>
-            <Button size="lg" color="info" className={classnames('btn')}>
+            <Button size="sm" color="primary" className={classnames('btn')}>
               Cart
             </Button ></NavLink>
         </div>
