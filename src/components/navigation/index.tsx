@@ -4,16 +4,44 @@ import classnames from 'classnames'
 import React from 'react'
 import './styles.scss'
 import { Button } from 'reactstrap'
+import { NavLink } from 'react-router-dom'
+import { PageInfoType } from '../../types'
 
-const Navigation = () => {
+
+interface NavType {
+  setPageInfo: (info: PageInfoType) => void
+}
+const Navigation: React.FC<NavType> = ({setPageInfo}) => {
+  const links = [
+    { to: "/", label: "Main" },
+    { to: "/category", label: "Comedy", title: "Comedy", url: "comedy" },
+    { to: "/category", label: "Fantastic", title: "Fantastic", url: "fantastic" },
+    { to: "/category", label: "Horror", title: "Horror", url: "horror" }
+  ]
   return (
     <nav className={classnames('navigation')}>
-      <Button size="lg" color="info" style={{ border: "none", padding: "10px", }}>
-        <FontAwesomeIcon icon={faHouse} className="fa-2xl" style={{ color: "rgba(0,0,255, 0.3)"}} />
-      </Button >
-      <Button size="lg" color="info" style={{ border: "none", padding: "10px" }}>
-        <FontAwesomeIcon icon={faShoppingCart} className="fa-2xl" style={{ color: "rgba(0,0,255, 0.3)"}} />
-      </Button>
+      <div className={classnames('wrapper')}>
+        <div className={classnames('nav')}>
+          {links.map((el) => {
+            return (
+              <NavLink to={el.to}>
+                <Button size="lg" color="info"
+                  className={classnames('btn')}
+                  onClick={() => el.title && setPageInfo({ title: el.title, url: el.url })}
+                >
+                  {el.label}
+                </Button ></NavLink>
+            )
+          })}
+        </div>
+        <div className={classnames('chart')}>
+          <NavLink to={'cart'}>
+            <Button size="lg" color="info" className={classnames('btn')}>
+              Cart
+            </Button ></NavLink>
+        </div>
+
+      </div>
     </nav>
   )
 }
