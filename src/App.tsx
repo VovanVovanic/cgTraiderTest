@@ -10,11 +10,14 @@ import Category from './pages/category';
 import { PageInfoType } from './types';
 import Movie from './pages/movie';
 import { IchartItem } from './redux/cart/types';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 function App() {
   const [pageInfo, setPageInfo] = useState<PageInfoType>({ url: "", title: "" })
   const [details, setDetails] = useState<IchartItem | null>(null)
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <main className={classnames('app')}>
         <Header setPageInfo={setPageInfo} />
@@ -25,7 +28,8 @@ function App() {
           <Route path="/movie" element={<Movie details={details} />} />
         </Routes>
       </main>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Provider>
   );
 }
 
