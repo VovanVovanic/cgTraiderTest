@@ -9,7 +9,7 @@
     flex-direction: column;
     width: 100%;
     .nav{
-      margin-bottom: 20px;
+      padding-bottom: 20px;
       display: flex;
       justify-content: center;
     }
@@ -23,4 +23,14 @@
   background-color: aliceblue !important;
   color:black !important;
   font-size: 12px;
+  margin: 0 5px
 }
+.cartLink{
+  position: relative;
+}
+  .cartBadge {
+    position: absolute;
+    left: 51%;
+    top: 62%;
+    background-color: red;
+  }

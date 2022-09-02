@@ -1,17 +1,21 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouse, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+
 import classnames from 'classnames'
 import React from 'react'
 import './styles.scss'
-import { Button } from 'reactstrap'
+import { Badge, Button } from 'reactstrap'
 import { NavLink } from 'react-router-dom'
 import { PageInfoType } from '../../types'
+import { useSelector } from 'react-redux'
+import { RootStateType } from '../../redux/store'
+import { IchartItem } from '../../redux/cart/types'
 
 
 interface NavType {
   setPageInfo: (info: PageInfoType) => void
 }
 const Navigation: React.FC<NavType> = ({ setPageInfo }) => {
+  const movieList = useSelector<RootStateType, Array<IchartItem>>((state) => state.chart.chart)
+
   const links = [
     { to: "/", label: "Main" },
     { to: "/category", label: "Comedy", title: "Comedy", url: "comedy" },
@@ -30,7 +34,7 @@ const Navigation: React.FC<NavType> = ({ setPageInfo }) => {
         <div className={classnames('nav')}>
           {links.map((el) => {
             return (
-              <NavLink to={el.to}>
+              <NavLink to={el.to} key={el.label}>
                 <Button size="sm" color="primary"
                   className={classnames('btn')}
                   onClick={() => onLinkClickHandler(el)}
@@ -41,10 +45,12 @@ const Navigation: React.FC<NavType> = ({ setPageInfo }) => {
           })}
         </div>
         <div className={classnames('chart')}>
-          <NavLink to={'cart'}>
+          <NavLink to={'cart'} className={classnames('chartLink')}>
             <Button size="sm" color="primary" className={classnames('btn')}>
-              Cart
-            </Button ></NavLink>
+              Cart 
+            </Button >
+            {movieList.length ? <Badge color="secondary" className={classnames('cartBadge')}>{movieList.length}</Badge> : ""}
+          </NavLink>
         </div>
 
       </div>

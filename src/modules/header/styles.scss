@@ -1,5 +1,5 @@
 .header {
-  height: 200px;
+  min-height: 200px;
   text-align: center;
   width: 100%;
   background-size: cover;
@@ -20,8 +20,8 @@
   .title {
     font-family: 'Dancing Script',
       cursive;
-    font-size: 50px;
-    margin: 0 30px 0 30px;
+    font-size: 40px;
+    margin: 0 20px 0 20px;
     display: flex;
     justify-content: center;
   }
