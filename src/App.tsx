@@ -12,6 +12,7 @@ import Movie from './pages/movie';
 import { IchartItem } from './redux/cart/types';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import Payment from './pages/payment';
 
 function App() {
   const [pageInfo, setPageInfo] = useState<PageInfoType>({ url: "", title: "" })
@@ -24,7 +25,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/category" element={<Category pageInfo={pageInfo} setDetails={setDetails} />} />
-          <Route path="/cart" element={<Cart />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/Payment" element={<Payment />} />
           <Route path="/movie" element={<Movie details={details} />} />
         </Routes>
       </main>

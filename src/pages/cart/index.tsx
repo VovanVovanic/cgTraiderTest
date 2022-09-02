@@ -6,11 +6,13 @@ import { ReactComponent as DeleteIcon } from "../../assets/svg/delete.svg";
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStateType } from '../../redux/store';
 import { IchartItem } from '../../redux/cart/types';
+import { useNavigate } from 'react-router-dom'
 import { clearChart, deleteItem } from '../../redux/cart/actions/chart';
 
 const Cart = () => {
   const cartList = useSelector<RootStateType, Array<IchartItem>>((state) => state.chart.chart)
   const prices: Array<number> = []
+  const navigate  = useNavigate()
 
   const dispatch = useDispatch()
   const onCartClear = () => {
@@ -19,6 +21,10 @@ const Cart = () => {
 
   const onItemDelete = (id:string) => {
     dispatch(deleteItem(id))
+  }
+
+  const onPayment = () => {
+    navigate('/payment')
   }
   
   return (
@@ -40,7 +46,7 @@ const Cart = () => {
 
         <ListGroupItem className="d-flex justify-content-between">Total Amount: <span>{prices.reduce((a, b) => a + b)}$</span><span></span></ListGroupItem>
         <ListGroupItem className="d-flex justify-content-between"><Button
-          onClick={() => console.log(prices)}>Purchase</Button>
+          onClick={onPayment}>Purchase</Button>
           <Button onClick={onCartClear}>Clear Cart</Button></ListGroupItem>
       </ListGroup> : <span>The Cart is Empty</span>}
     </div>

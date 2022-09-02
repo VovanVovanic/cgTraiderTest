@@ -1,6 +1,5 @@
 import classnames from 'classnames'
 import React from 'react'
-import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap'
 import './styles.scss'
 
 const Main = () => {
