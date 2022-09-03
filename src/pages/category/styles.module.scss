@@ -1,0 +1,23 @@
+.category {
+  composes: shared-background from'../../app.scss';
+}
+
+.cover {
+  composes: shared-cover from'../../app.scss'
+}
+
+.title {
+composes: shared-title from'../../app.scss'
+}
+
+.horror.category {
+  background-image: url('../../assets/backgrounds/horrors.jpg');
+}
+
+.comedy.category {
+  background-image: url('../../assets/backgrounds/comedy.jpg');
+}
+
+.fantastic.category {
+  background-image: url('../../assets/backgrounds/fantastic.jpg');
+}

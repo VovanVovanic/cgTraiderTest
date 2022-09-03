@@ -1,0 +1,48 @@
+.movie {
+  composes: shared-background from'../../app.scss';
+  background-image: url('../../assets/backgrounds/movie.jpg');
+  // margin-top: -35px;
+  flex-grow: 3;
+}
+
+.cover {
+  composes: shared-cover from'../../app.scss'
+}
+
+.title {
+  composes: shared-title from'../../app.scss';
+  margin-bottom: 10px;
+}
+
+.wrapper{
+   display: flex;
+   justify-content: center;
+.content {
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+  width: 30rem;
+    .imgCover {
+      width: 100%;
+      height: 200px;
+      .img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .btn {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  
+}
+
+}
+
+

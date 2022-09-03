@@ -1,8 +1,8 @@
-import { ADD_ITEM, DELETE_ITEM, CLEAR_CHART, IMessage, SET_MESSAGE, SET_LOADING, Statuses } from './../types';
+import { ADD_ITEM, DELETE_ITEM, CLEAR_CHART, IMessage, SET_MESSAGE, SET_LOADING, Statuses } from '../types';
 
-import { IchartItem, GET_CHART } from "../types";
 import { Dispatch } from 'redux';
-import { addItemToChart, clearAllData, deleteItemFromChart, getItems } from '../services/api';
+import { addItemToChart, clearAllData, deleteItemFromChart, getItems } from '../../services/api';
+import { IchartItem, GET_CHART } from '../types';
 
 ///actions
 export const getChartItems = (items: Array<IchartItem>) => ({ type: GET_CHART, payload: items } as const)
@@ -15,7 +15,7 @@ export const deleteItem = (id: string) => ({ type: DELETE_ITEM, payload: id } as
 export const clearChart = () => ({ type: CLEAR_CHART } as const)
 
 
-///thunks only as an example as I dont have back end here in this task. 
+///thunks only as an example as I dont have backend here in this task. 
 export const fetchGetItems = () => async (dispatch: Dispatch) => {
   dispatch(setLoading(true))
   try {

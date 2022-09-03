@@ -1,0 +1,21 @@
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .list{
+    width: 600px;
+    justify-content: space-between;
+  }
+}
+
+
+.icon{
+    width: 20px;
+    height: 20px;
+    cursor: pointer
+}
+.title {
+  composes: shared-title from'../../app.scss';
+  margin-bottom: 20px;
+}

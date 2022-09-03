@@ -1,0 +1,13 @@
+.payment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.title {
+  composes: shared-title from'../../app.scss';
+  margin-bottom: 20px;
+}

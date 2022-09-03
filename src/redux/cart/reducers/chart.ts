@@ -1,4 +1,4 @@
-import { ActionsType, ADD_ITEM, CLEAR_CHART, DELETE_ITEM, IMessage } from './../types';
+import { ActionsType, ADD_ITEM, CLEAR_CHART, DELETE_ITEM, IMessage } from '../types';
 import { IchartItem, InitStateType, GET_CHART, SET_LOADING, SET_MESSAGE } from '../types'
 
 export const initState = {

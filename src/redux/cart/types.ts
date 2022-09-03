@@ -1,8 +1,10 @@
 import { Action } from "redux";
 import { ThunkAction } from "redux-thunk";
-import { addItem, clearChart, deleteItem, getChartItems, setLoading, setMessage } from "./actions/chart";
+
+import { RootStateType } from "../store";
+import { getChartItems, setMessage, setLoading, addItem, deleteItem, clearChart } from "./actions/chart";
 import { initState } from "./reducers/chart";
-import { RootStateType } from "./store";
+
 
 export const ADD_ITEM = "ADD_ITEM";
 export const DELETE_ITEM = "DELETE_ITEM";
@@ -17,6 +19,7 @@ export interface IchartItem {
   id: string,
   price: number
   description: string
+  title: string
   pictureUrl: string
 }
 
